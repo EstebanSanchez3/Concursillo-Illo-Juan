@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista Facil</title>
+
+    <!--Enlace a estilo de letra-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Protest+Revolution&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!--Background body-->
+    <div class="background"></div>
+
+    <!--Class todo recoge todo lo relacionado con las preguntas-->
+    <div class="todo">
+
+        <a href="lista-media">media</a>
+        <a href="listadificil">dificil</a>
+        <!--Acceso a las demas vistas
+   
+       -->
+        
+        <!--Contador es el conteo de preguntas-->
+        <div class="contador">
+            <!--Logica para preguntas acertadas-->
+            <p *ngFor="let num of [1, 2, 3, 4, 5]"
+                [ngStyle]="{'background': num <= preguntasAcertadas ? 'rgb(157 218 139)' : '#f1f1f1'}">{{num}}</p>
+            <p id="sig">6</p>
+            <p id="sig">7</p>
+            <p id="sig">8</p>
+            <p id="sig">9</p>
+            <p id="sig">10</p>
+            <p id="sig">11</p>
+            <p id="sig">12</p>
+            <p id="sig">13</p>
+            <p id="sig">14</p>
+            <p id="sig">15</p>
+        </div>
+
+        <!--Comienzo de preguntas-->
+        <!--La logica de las preguntas se repite, por lo que solo se explicara la primera-->
+        <!--pregunta ==1, indice de primera pregunta cuando preguntasDisponibles [] lo recorra -->
+        <div *ngIf="pregunta == 1">
+            <fieldset>
+                <h4>En que edad se empazó a usar la aleación de cobre y estaño</h4>
+                <!--La logica se activara con click al pulsar en true, siguiente pregunta, false, lanza mensaje, 0 es respuesta mala siempre-->
+                <input type="button" value="Edad del Bronce" (click)="respuestaCorrecta(true)" id="casilla">
+                <input type="button" value="Edad de Piedra" (click)="respuestaCorrecta(false)" id="casilla">
+                <input type="button" value="Edad del Hierro" (click)="respuestaCorrecta(false)" id="casilla">
+                <input type="button" value="Edad de la metalurgia" (click)="respuestaCorrecta(false)" id="casilla">
+            </fieldset>
+        </div>
+        <!--Fin explicacion preguntas-->
+
+        <div *ngIf="pregunta == 2">
+            <fieldset>
+                <h4>Como se llama el hacha que usa Kratos en el soft reboot saga God of War</h4>
+                <input type="button" value="Draupnir" (click)="respuestaCorrecta(false)" id="casilla">
+                <input type="button" value="El abogado defensor" (click)="respuestaCorrecta(false)" id="casilla">
+                <input type="button" value="Leviatán" (click)="respuestaCorrecta(true)" id="casilla">
+                <input type="button" value="Lamarsa lada" (click)="respuestaCorrecta(false)" id="casilla">
+            </fieldset>
+        </div>
+
+        <div *ngIf="pregunta == 3">
+            <fieldset>
+                <h4>Cuantas gemas del infinito existen en el UCM</h4>
+                <input type="button" value="Nueve" (click)="respuestaCorrecta(false)" id="casilla">
+                <input type="button" value="Seis" (click)="respuestaCorrecta(true)" id="casilla">
+                <input type="button" value="Ocho" (click)="respuestaCorrecta(false)" id="casilla">
+                <input type="button" value="Cinco" (click)="respuestaCorrecta(false)" id="casilla">
+            </fieldset>
+        </div>
+
+        <div *ngIf="pregunta == 4">
+            <fieldset>
+                <h4>A que estaba atado el hechizo que lanzó la hechicera a la Bestia en "la Bella y la Bestia"</h4>
+                <input type="button" value="Un espejo" (click)="respuestaCorrecta(false)" id="casilla">
+                <input type="button" value="Una lamparita" (click)="respuestaCorrecta(false)" id="casilla">
+                <input type="button" value="Una rosa" (click)="respuestaCorrecta(true)" id="casilla">
+                <input type="button" value="Un zapato" (click)="respuestaCorrecta(false)" id="casilla">
+            </fieldset>
+        </div>
+
+        <div *ngIf="pregunta == 5">
+            <fieldset>
+                <h4>Que casa de Juego de Tronos tiene el lema: "los __ siempre pagan sus deudas" </h4>
+                <input type="button" value="Lannister" (click)="respuestaCorrecta(true)" id="casilla">
+                <input type="button" value="Bridgerton" (click)="respuestaCorrecta(false)" id="casilla">
+                <input type="button" value="Targaryen" (click)="respuestaCorrecta(false)" id="casilla">
+                <input type="button" value="Wayne" (click)="respuestaCorrecta(false)" id="casilla">
+            </fieldset>
+        </div>
+
+        <div *ngIf="pregunta == 6">
+            <fieldset>
+                <h4>¿Cuál es el país más grande del mundo?</h4>
+                <input type="button" value="China" (click)="respuestaCorrecta(false)" id="casilla">
+                <input type="button" value="Rusia" (click)="respuestaCorrecta(true)" id="casilla">
+                <input type="button" value="Portugal" (click)="respuestaCorrecta(false)" id="casilla">
+                <input type="button" value="Loompalandia" (click)="respuestaCorrecta(false)" id="casilla">
+            </fieldset>
+        </div>
+
+        <div *ngIf="pregunta == 7">
+            <fieldset>
+                <h4>Con que película Leonardo Dicaprio ganó el Oscar a mejor actor</h4>
+                <input type="button" value="Django" (click)="respuestaCorrecta(false)" id="casilla">
+                <input type="button" value="El renacido" (click)="respuestaCorrecta(true)" id="casilla">
+                <input type="button" value="El Lobo de Wall Street" (click)="respuestaCorrecta(false)" id="casilla">
+                <input type="button" value="El Titanic" (click)="respuestaCorrecta(false)" id="casilla">
+            </fieldset>
+        </div>
+
+        <div *ngIf="pregunta == 8">
+            <fieldset>
+                <h4>como se llama el dios del vino en la mitologia griega</h4>
+                <input type="button" value="Helios" (click)="respuestaCorrecta(false)" id="casilla">
+                <input type="button" value="Pathos Verdes tercero" (click)="respuestaCorrecta(false)" id="casilla">
+                <input type="button" value="Yacayo Lhanoche" (click)="respuestaCorrecta(false)" id="casilla">
+                <input type="button" value="Dioniso" (click)="respuestaCorrecta(true)" id="casilla">
+            </fieldset>
+        </div>
+
+        <div *ngIf="pregunta == 9">
+            <fieldset>
+                <h4>Cómo se llama la mascara que acompaña Crash Bandicoot</h4>
+                <input type="button" value="Buhgaratag" (click)="respuestaCorrecta(false)" id="casilla">
+                <input type="button" value="Aku Aku" (click)="respuestaCorrecta(true)" id="casilla">
+                <input type="button" value="Másh Carilla" (click)="respuestaCorrecta(false)" id="casilla">
+                <input type="button" value="Wonguela" (click)="respuestaCorrecta(false)" id="casilla">
+            </fieldset>
+        </div>
+
+        <div *ngIf="pregunta == 10">
+            <fieldset>
+                <h4>En qué año inició el uso comercial del Wi-Fi</h4>
+                <input type="button" value="1997" (click)="respuestaCorrecta(true)" id="casilla">
+                <input type="button" value="2000" (click)="respuestaCorrecta(false)" id="casilla">
+                <input type="button" value="2004" (click)="respuestaCorrecta(false)" id="casilla">
+                <input type="button" value="1984" (click)="respuestaCorrecta(false)" id="casilla">
+            </fieldset>
+        </div>
+
+    </div>
+
+</body>
+</html>

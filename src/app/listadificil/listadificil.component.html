@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista dificil</title>
+
+    <!--Enlace a estilo de letra-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Protest+Revolution&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <!--Background body-->
+    <div class="background"></div>
+
+    <!--Class todo recoge todo lo relacionado con las preguntas-->
+    <div class="todo">
+
+        <!--Contador es el conteo de preguntas-->
+        <div class="contador">
+            <!--Logica para preguntas acertadas-->
+            <p id="sig">1</p>
+            <p id="sig">2</p>
+            <p id="sig">3</p>
+            <p id="sig">4</p>
+            <p id="sig">5</p>
+            <p id="sigsig">6</p>
+            <p id="sigsig">7</p>
+            <p id="sigsig">8</p>
+            <p id="sigsig">9</p>
+            <p id="sigsig">10</p>
+            <p *ngFor="let num of [11, 12, 13, 14, 15]"
+                [ngStyle]="{'background': num <= preguntasAcertadas ? '#ef5a5a' : '#f1f1f1'}">{{num}}</p>
+        </div>
+
+        <!--Comienzo de preguntas-->
+        <!--La logica de las preguntas se repite, por lo que solo se explicara la primera-->
+        <!--pregunta ==1, indice de primera pregunta cuando preguntasDisponibles [] lo recorra -->
+        <div *ngIf="pregunta == 1">
+            <fieldset>
+                <h4>Cuanto tiempo tiene en pantalla Darth Vader en Una Nueva Esperanza</h4>
+                <!--La logica se activara con click al pulsar en true, siguiente pregunta, false, lanza mensaje, 0 es respuesta mala siempre-->
+                <input type="button" value="15 minutos" (click)="respuestaCorrecta(false)" id="casilla">
+                <input type="button" value="8 minutos" (click)="respuestaCorrecta(true)" id="casilla">
+                <input type="button" value="5 minutos" (click)="respuestaCorrecta(false)" id="casilla">
+                <input type="button" value="10 minutos" (click)="respuestaCorrecta(false)" id="casilla">
+            </fieldset>
+        </div>
+        <!--Fin explicacion preguntas-->
+
+        <div *ngIf="pregunta == 2">
+            <fieldset>
+                <h4>Que película del UCM fue la única nominada a los Razzie (los anti-Oscar)</h4>
+                <input type="button" value="The Marvels" (click)="respuestaCorrecta(false)" id="casilla">
+                <input type="button" value="Thor el Mundo Oscuro" (click)="respuestaCorrecta(false)" id="casilla">
+                <input type="button" value="Ant-Man y la Avispa: Quantumania" (click)="respuestaCorrecta(true)" id="casilla">
+                <input type="button" value="Iron Man 3" (click)="respuestaCorrecta(false)" id="casilla">
+            </fieldset>
+        </div>
+        
+        <div *ngIf="pregunta == 3">
+            <fieldset>
+                <h4>Cual es el mapa más grande en videojuegos single player de la historia</h4>
+                <input type="button" value="Red Dead Redemption 2" (click)="respuestaCorrecta(false)" id="casilla">
+                <input type="button" value="Grand Theft Auto V" (click)="respuestaCorrecta(false)" id="casilla">
+                <input type="button" value="The Witcher 3: Wild Hunt" (click)="respuestaCorrecta(false)" id="casilla">
+                <input type="button" value="The Elder Scrolls II: Daggerfall" (click)="respuestaCorrecta(true)" id="casilla">
+            </fieldset>
+        </div>
+
+        <div *ngIf="pregunta == 4">
+            <fieldset>
+                <h4>Cuantos juegos tiene la saga Resident Evil a fecha de 17 mar 2023 contando remastered, etc</h4>
+                <input type="button" value="57" (click)="respuestaCorrecta(true)" id="casilla">
+                <input type="button" value="32" (click)="respuestaCorrecta(false)" id="casilla">
+                <input type="button" value="41" (click)="respuestaCorrecta(false)" id="casilla">
+                <input type="button" value="21" (click)="respuestaCorrecta(false)" id="casilla">
+            </fieldset>
+        </div>
+
+        <div *ngIf="pregunta == 5">
+            <fieldset>
+                <h4>¿Quién fue el primer emperador romano?</h4>
+                <input type="button" value="César Augusto" (click)="respuestaCorrecta(true)" id="casilla">
+                <input type="button" value="Julio César" (click)="respuestaCorrecta(false)" id="casilla">
+                <input type="button" value="Trajano" (click)="respuestaCorrecta(false)" id="casilla">
+                <input type="button" value="Marco Aurelio" (click)="respuestaCorrecta(false)" id="casilla">
+            </fieldset>
+        </div>
+
+        <div *ngIf="pregunta == 6">
+            <fieldset>
+                <h4>¿Qué raza no está comprendida dentro de la mitología nórdica?</h4>
+                <input type="button" value="Elfos" (click)="respuestaCorrecta(false)" id="casilla">
+                <input type="button" value="Ortro" (click)="respuestaCorrecta(true)" id="casilla">
+                <input type="button" value="Enanos" (click)="respuestaCorrecta(false)" id="casilla">
+                <input type="button" value="Gigantes de Fuego" (click)="respuestaCorrecta(false)" id="casilla">
+            </fieldset>
+        </div>
+
+        <div *ngIf="pregunta == 7">
+            <fieldset>
+                <h4>Cuál es el animal que tiene el corazón más grande en relación con su tamaño corporal?</h4>
+                <input type="button" value="Elefante Africano" (click)="respuestaCorrecta(false)" id="casilla">
+                <input type="button" value="Ballena Azul" (click)="respuestaCorrecta(false)" id="casilla">
+                <input type="button" value="Colibrí garganta de rubí" (click)="respuestaCorrecta(true)" id="casilla">
+                <input type="button" value="Albatros" (click)="respuestaCorrecta(false)" id="casilla">
+            </fieldset>
+        </div>
+
+        <div *ngIf="pregunta == 8">
+            <fieldset>
+                <h4>¿Cuál es el animal con el veneno más poderoso del mundo?</h4>
+                <input type="button" value="Araña Viuda Negra" (click)="respuestaCorrecta(false)" id="casilla">
+                <input type="button" value="Escorpión de Cola Gruesa" (click)="respuestaCorrecta(false)" id="casilla">
+                <input type="button" value="Serpiente Taipán del Interior" (click)="respuestaCorrecta(false)" id="casilla">
+                <input type="button" value="Avispa de Mar" (click)="respuestaCorrecta(true)" id="casilla">
+            </fieldset>
+        </div>
+
+        <div *ngIf="pregunta == 9">
+            <fieldset>
+                <h4>Cual fue el GOTY del año 2018</h4>
+                <input type="button" value="Zelda Breath of the Wild" (click)="respuestaCorrecta(false)" id="casilla">
+                <input type="button" value="Marvel Spider-Man" (click)="respuestaCorrecta(false)" id="casilla">
+                <input type="button" value="Red Dead Redemption 2" (click)="respuestaCorrecta(false)" id="casilla">
+                <input type="button" value="God of War" (click)="respuestaCorrecta(true)" id="casilla">
+            </fieldset>
+        </div>
+
+        <div *ngIf="pregunta == 10">
+            <fieldset>
+                <h4>Cuantos oscar tiene la saga de el señor de los anillos</h4>
+                <input type="button" value="10" (click)="respuestaCorrecta(false)" id="casilla">
+                <input type="button" value="15" (click)="respuestaCorrecta(true)" id="casilla">
+                <input type="button" value="11" (click)="respuestaCorrecta(false)" id="casilla">
+                <input type="button" value="7" (click)="respuestaCorrecta(false)" id="casilla">
+            </fieldset>
+        </div>
+
+
+    </div>
+
+</body>
+</html>
+

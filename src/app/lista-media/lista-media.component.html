@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista Media</title>
+
+    <!--Enlace a estilo de letra-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Protest+Revolution&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!--Background body-->
+    <div class="background"></div>
+
+    <!--Class todo recoge todo lo relacionado con las preguntas-->
+    <div class="todo">
+
+        <!--Contador es el conteo de preguntas-->
+        <div class="contador">
+            <!--Logica para preguntas acertadas-->
+            <p id="sig">1</p>
+            <p id="sig">2</p>
+            <p id="sig">4</p>
+            <p id="sig">5</p>
+            <p *ngFor="let num of [6, 7, 8, 9, 10]"
+                [ngStyle]="{'background': num <= preguntasAcertadas ? '#ffc062' : '#f1f1f1'}">{{num}}</p>
+                <p id="sigsig">11</p>
+                <p id="sigsig">12</p>
+                <p id="sigsig">13</p>
+                <p id="sigsig">14</p>
+                <p id="sigsig">15</p>
+        </div>
+
+        <!--Comienzo de preguntas-->
+        <!--La logica de las preguntas se repite, por lo que solo se explicara la primera-->
+        <!--pregunta ==1, indice de primera pregunta cuando preguntasDisponibles [] lo recorra -->
+        <div *ngIf="pregunta == 1">
+            <fieldset>
+                <h4>¿Quién es el máximo goleador histórico de los mundiales de fútbol?</h4>
+                <!--La logica se activara con click al pulsar en true, siguiente pregunta, false, lanza mensaje, 0 es respuesta mala siempre-->
+                <input type="button" value="Ronaldo Nazário" (click)="respuestaCorrecta(false)" id="casilla">
+                <input type="button" value="Miroslav Klose" (click)="respuestaCorrecta(true)" id="casilla">
+                <input type="button" value="Cristiano Ronaldo" (click)="respuestaCorrecta(false)" id="casilla">
+                <input type="button" value="David Villa" (click)="respuestaCorrecta(false)" id="casilla">
+            </fieldset>
+        </div>
+        <!--Fin explicacion preguntas-->
+
+        <div *ngIf="pregunta == 2">
+            <fieldset>
+                <h4>¿Cuál fue la primera película de Disney?</h4>
+                <input type="button" value="Pinocho" (click)="respuestaCorrecta(false)" id="casilla">
+                <input type="button" value="Peter Pan Tumaca" (click)="respuestaCorrecta(false)" id="casilla">
+                <input type="button" value="Blancanieves y los siete enanitos" (click)="respuestaCorrecta(true)" id="casilla">
+                <input type="button" value="La Sirenita" (click)="respuestaCorrecta(false)" id="casilla">
+            </fieldset>
+        </div>
+
+        <div *ngIf="pregunta == 3">
+            <fieldset>
+                <h4>Cómo se llama el hermano gemelo malvado de Bart Simpson</h4>
+                <input type="button" value="Swart Sompsin" (click)="respuestaCorrecta(false)" id="casilla">
+                <input type="button" value="je je je siuu" (click)="respuestaCorrecta(false)" id="casilla">
+                <input type="button" value="El Barto" (click)="respuestaCorrecta(false)" id="casilla">
+                <input type="button" value="Hugo" (click)="respuestaCorrecta(true)" id="casilla">
+            </fieldset>
+        </div>
+
+        <div *ngIf="pregunta == 4">
+            <fieldset>
+                <h4>Cómo se conocía la Primera Guerra Mundial antes de que estallara la segunda</h4>
+                <input type="button" value="La Gran Guerra" (click)="respuestaCorrecta(true)" id="casilla">
+                <input type="button" value="La Guerra de las Trincheras" (click)="respuestaCorrecta(false)" id="casilla">
+                <input type="button" value="La Trinchera Infinita" (click)="respuestaCorrecta(false)" id="casilla">
+                <input type="button" value="La guerra de guerras" (click)="respuestaCorrecta(false)" id="casilla">
+            </fieldset>
+        </div>
+
+        <div *ngIf="pregunta == 5">
+            <fieldset>
+                <h4>Cuál es el nombre de la señal mágica utilizada por los brujos en la saga The Witcher relacionada con el fuego</h4>
+                <input type="button" value="Igni" (click)="respuestaCorrecta(true)" id="casilla">
+                <input type="button" value="Aard" (click)="respuestaCorrecta(false)" id="casilla">
+                <input type="button" value="Yrden" (click)="respuestaCorrecta(false)" id="casilla">
+                <input type="button" value="Quen" (click)="respuestaCorrecta(false)" id="casilla">
+            </fieldset>
+        </div>
+
+        <div *ngIf="pregunta == 6">
+            <fieldset>
+                <h4>Cuál es el videojuego más vendido de la historia</h4>
+                <input type="button" value="Grand Theft Auto V" (click)="respuestaCorrecta(false)" id="casilla">
+                <input type="button" value="Minecraft" (click)="respuestaCorrecta(true)" id="casilla">
+                <input type="button" value="The Elder Scrolls V: Skyrim" (click)="respuestaCorrecta(false)" id="casilla">
+                <input type="button" value="Tetris (EA)" (click)="respuestaCorrecta(false)" id="casilla">
+            </fieldset>
+        </div>
+
+        <div *ngIf="pregunta == 7">
+            <fieldset>
+                <h4>Quien fue la primera persona en dar la vuelta al mundo</h4>
+                <input type="button" value="cristobal colón" (click)="respuestaCorrecta(false)" id="casilla">
+                <input type="button" value="Willy Fog" (click)="respuestaCorrecta(false)" id="casilla">
+                <input type="button" value="Juan Sebastián Elcano" (click)="respuestaCorrecta(true)" id="casilla">
+                <input type="button" value="Elvuel Taloca" (click)="respuestaCorrecta(false)" id="casilla">
+            </fieldset>
+        </div>
+
+        <div *ngIf="pregunta == 8">
+            <fieldset>
+                <h4>Como se llama el compositor de películas como, Gladiator, Piratas del Caribe y el Rey León</h4>
+                <input type="button" value="Howard Shore" (click)="respuestaCorrecta(false)" id="casilla">
+                <input type="button" value="Ennio Morricone" (click)="respuestaCorrecta(false)" id="casilla">
+                <input type="button" value="John Williams" (click)="respuestaCorrecta(false)" id="casilla">
+                <input type="button" value="Hans Zimmer" (click)="respuestaCorrecta(true)" id="casilla">
+            </fieldset>
+        </div>
+
+        <div *ngIf="pregunta == 9">
+            <fieldset>
+                <h4>A que emprese le pertenece marcas como Lays, Chatos y Doritos</h4>
+                <input type="button" value="Frit" (click)="respuestaCorrecta(false)" id="casilla">
+                <input type="button" value="Pringles SL" (click)="respuestaCorrecta(false)" id="casilla">
+                <input type="button" value="Matutano" (click)="respuestaCorrecta(false)" id="casilla">
+                <input type="button" value="PepsiCo" (click)="respuestaCorrecta(true)" id="casilla">
+            </fieldset>
+        </div>
+
+        <div *ngIf="pregunta == 10">
+            <fieldset>
+                <h4>Como se llama el deporte en el que los jugadores golpeaban la pelota con las caderas</h4>
+                <input type="button" value="బాల్ హిప్ గోల్ బాగుంది" (click)="respuestaCorrecta(false)" id="casilla">
+                <input type="button" value="pok-ta-pok" (click)="respuestaCorrecta(true)" id="casilla">
+                <input type="button" value="Pelota Cadera" (click)="respuestaCorrecta(false)" id="casilla">
+                <input type="button" value="Fútbol Maya" (click)="respuestaCorrecta(false)" id="casilla">
+            </fieldset>
+        </div>
+
+    </div>
+
+</body>
+</html>
